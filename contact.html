@@ -1,0 +1,555 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تواصل معنا | تكنولوجيا المعلومات</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: white;
+            color: #111827;
+            font-family: Georgia, serif;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #071b3a, #075985);
+            color: white;
+            padding: 20px 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            min-height: 150px;
+            direction: ltr;
+        }
+
+        .school-logo,
+        header .logo {
+            width: 125px;
+            height: 125px;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            background: white;
+            padding: 8px;
+            border: 2px solid #7dd3fc;
+            border-radius: 50%;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+            transition: 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .school-logo:hover,
+        header .logo:hover {
+            transform: scale(1.04);
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            color: #dbeafe;
+            margin: 0;
+            font-size: 17px;
+        }
+
+        /* ZOOM BUTTONS */
+        .zoom-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            direction: rtl;
+        }
+
+        .zoom-buttons button {
+            padding: 9px 18px;
+            border: 1px solid #7dd3fc;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: #071b3a;
+            cursor: pointer;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        .zoom-buttons button:hover {
+            background: white;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #123f69;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            direction: rtl;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 18px 22px;
+            display: block;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #38bdf8;
+            color: #071b3a;
+        }
+
+        /* MAIN CONTENT */
+        .main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        .section-title {
+            font-size: 27px;
+            color: #082f55;
+            text-align: center;
+            margin: 0 0 15px;
+        }
+
+        .section-intro {
+            text-align: center;
+            line-height: 2;
+            margin: 0 auto 35px;
+            color: #374151;
+            max-width: 850px;
+            font-size: 17px;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            border-right: 5px solid #075985;
+            border-radius: 18px;
+            padding: 25px;
+            margin: 30px auto;
+            box-shadow: 0 5px 18px #0c4a6e15;
+            transition: 0.3s ease;
+        }
+
+        .about-section:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 22px #0c4a6e25;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            color: #082f55;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 25px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .about-item {
+            background: #eff6ff;
+            padding: 20px;
+            border: 1px solid #dbeafe;
+            border-right: 5px solid #075985;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px #0c4a6e10;
+            transition: 0.3s ease;
+        }
+
+        .about-item:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 22px #0c4a6e20;
+        }
+
+        .about-item h3 {
+            color: #075985;
+            margin: 0 0 10px;
+            font-size: 19px;
+        }
+
+        .about-item p {
+            color: #374151;
+            line-height: 1.9;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        /* CONTACT FORM */
+        .form-section {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 25px;
+            border: 1px solid #dbeafe;
+            border-right: 5px solid #075985;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px #0c4a6e15;
+            background: #eff6ff;
+            transition: 0.3s ease;
+        }
+
+        .form-section:hover {
+            border-color: #38bdf8;
+            box-shadow: 0 8px 22px #0c4a6e25;
+        }
+
+        .form-section h2 {
+            color: #082f55;
+            text-align: center;
+            font-size: 26px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 17px 0 8px;
+            color: #075985;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+            background: white;
+            color: #111827;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #0284c7;
+            box-shadow: 0 0 0 3px #0284c720;
+        }
+
+        textarea {
+            height: 140px;
+            resize: vertical;
+        }
+
+        .form-section button {
+            background: #075985;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            margin-top: 22px;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .form-section button:hover {
+            background: #38bdf8;
+            color: #071b3a;
+            transform: translateY(-2px);
+        }
+
+        /* FUTURE SECTION */
+        .future {
+            background: #0c3156;
+            color: white;
+            padding: 35px 20px;
+            margin: 40px 0 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .future h2 {
+            color: #7dd3fc;
+            font-size: 27px;
+            margin-top: 0;
+        }
+
+        .future p {
+            max-width: 800px;
+            color: white;
+            font-size: 17px;
+            line-height: 2;
+            margin: auto;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .about-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 15px 10px;
+                gap: 8px;
+                min-height: 110px;
+            }
+
+            .school-logo,
+            header .logo {
+                width: 85px;
+                height: 85px;
+                padding: 5px;
+            }
+
+            .zoom-buttons {
+                gap: 5px;
+            }
+
+            .zoom-buttons button {
+                padding: 7px 9px;
+                font-size: 12px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            nav a {
+                padding: 12px;
+                font-size: 15px;
+            }
+
+            .main {
+                padding: 15px;
+            }
+
+            .section-title {
+                font-size: 23px;
+            }
+
+            .section-intro {
+                font-size: 15px;
+            }
+
+            .about-section {
+                padding: 20px;
+            }
+
+            .about-section h2 {
+                font-size: 22px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-item {
+                padding: 18px;
+            }
+
+            .form-section {
+                padding: 20px;
+            }
+
+            .form-section h2 {
+                font-size: 23px;
+            }
+
+            .form-section button {
+                width: 100%;
+            }
+
+            .future {
+                padding: 25px 18px;
+                margin: 30px 0 0;
+            }
+
+            .future h2 {
+                font-size: 23px;
+            }
+
+            .future p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <!-- School logo on the left -->
+        <img class="school-logo"
+             src="img/شعار المدرسة .jpeg"
+             alt="شعار المدرسة">
+
+        <div class="zoom-buttons">
+            <button onclick="document.body.style.zoom='100%'">100%</button>
+            <button onclick="document.body.style.zoom='150%'">150%</button>
+            <button onclick="document.body.style.zoom='200%'">200%</button>
+        </div>
+
+        <!-- IT logo on the right -->
+        <img class="logo"
+             src="img/logo.jpeg"
+             alt="شعار تخصص تكنولوجيا المعلومات">
+
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index.html" class="active">الرئيسية</a>
+        <a href="hours.html">الساعات الدراسية</a>
+        <a href="training.html">التدريب الميداني</a>
+        <a href="skills.html">المهارات والمجالات</a>
+        <a href="projects.html">مشاريع الطلاب</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <h2 class="section-title">معلومات عن التخصص</h2>
+
+        <p class="section-intro">
+            تعرف على تخصص تكنولوجيا المعلومات ونظام BTEC،
+            واكتشف المهارات والمجالات التي يتعلمها الطلاب خلال رحلتهم الدراسية.
+        </p>
+
+        <!-- ABOUT SECTION -->
+        <section class="about-section">
+
+            <h2>معلومات مهمة عن التخصص</h2>
+
+            <div class="about-grid">
+
+                <div class="about-item">
+                    <h3>نظام BTEC</h3>
+                    <p>
+                        يعتمد نظام BTEC على التعلم المهني والتطبيقي،
+                        ويتيح للطلاب تطوير مهاراتهم من خلال تنفيذ
+                        المهام والمشاريع العملية.
+                    </p>
+                </div>
+
+                <div class="about-item">
+                    <h3>المهارات التقنية</h3>
+                    <p>
+                        يتعرف الطلاب على البرمجة وتطوير المواقع
+                        والتطبيقات وقواعد البيانات والشبكات
+                        وغيرها من مجالات تكنولوجيا المعلومات.
+                    </p>
+                </div>
+
+                <div class="about-item">
+                    <h3>التدريب الميداني</h3>
+                    <p>
+                        يتيح التدريب الميداني فرصة تطبيق المهارات
+                        والمعارف المكتسبة في بيئة عمل حقيقية،
+                        وفق متطلبات البرنامج.
+                    </p>
+                </div>
+
+                <div class="about-item">
+                    <h3>المشاريع العملية</h3>
+                    <p>
+                        ينفذ الطلاب مشاريع متنوعة تساعدهم على
+                        توظيف المعرفة النظرية واكتساب الخبرة
+                        في حل المشكلات التقنية.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT FORM -->
+        <section class="form-section">
+
+            <h2>أرسل لنا رسالة</h2>
+
+            <form onsubmit="sendMessage(event)">
+
+                <label for="name">الاسم الكامل</label>
+                <input type="text"
+                       id="name"
+                       name="name"
+                       placeholder="أدخل اسمك"
+                       required>
+
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       placeholder="أدخل بريدك الإلكتروني"
+                       required>
+
+                <label for="subject">الموضوع</label>
+                <input type="text"
+                       id="subject"
+                       name="subject"
+                       placeholder="موضوع الرسالة"
+                       required>
+
+                <label for="message">الرسالة</label>
+                <textarea id="message"
+                          name="message"
+                          placeholder="اكتب رسالتك هنا..."
+                          required></textarea>
+
+                <button type="submit">إرسال الرسالة</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- FUTURE -->
+    <section class="future" id="future">
+
+        <h2>مستقبل التكنولوجيا</h2>
+
+        <p>
+            تغير التكنولوجيا العالم يوما بعد يوم؛ إذ تفتح تقنيات مثل الذكاء الاصطناعي، والروبوتات، والواقع الافتراضي، وإنترنت الأشياء آفاقا جديدة وتعيد تشكيل مستقبلنا.
+        </p>
+
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+
+            alert("تم استلام بيانات الرسالة في النموذج التجريبي. يلزم ربط الموقع بخدمة إرسال حتى تصل الرسالة فعلياً.");
+
+            event.target.reset();
+        }
+    </script>
+
+</body>
+</html>

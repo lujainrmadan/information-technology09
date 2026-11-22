@@ -1,0 +1,454 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الأسئلة الشائعة | تكنولوجيا المعلومات</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: white;
+            color: #111827;
+            font-family: Georgia, serif;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #071b3a, #075985);
+            color: white;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 15px;
+        }
+
+        header .logo {
+            width: 200px;
+            height: 110px;
+            object-fit: contain;
+            display: block;
+            background: white;
+            padding: 10px;
+            border: 2px solid #7dd3fc;
+            border-radius: 20px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+            transition: 0.3s ease;
+        }
+
+        header .logo:hover {
+            transform: scale(1.04);
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            color: #dbeafe;
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* ZOOM BUTTONS */
+        .zoom-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .zoom-buttons button {
+            padding: 9px 18px;
+            border: 1px solid #7dd3fc;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: #071b3a;
+            cursor: pointer;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        .zoom-buttons button:hover {
+            background: white;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #123f69;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 18px 22px;
+            display: block;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #38bdf8;
+            color: #071b3a;
+        }
+
+        /* FAQ CONTENT */
+        .faq-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        .faq-title {
+            text-align: center;
+            color: #082f55;
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .faq-intro {
+            text-align: center;
+            line-height: 2;
+            margin: 0 auto 35px;
+            color: #374151;
+            max-width: 850px;
+            font-size: 17px;
+        }
+
+        /* FAQ GRID */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        /* FAQ CARDS */
+        .faq-item {
+            background: #eff6ff;
+            padding: 25px;
+            border: 1px solid #dbeafe;
+            border-right: 5px solid #075985;
+            border-radius: 18px;
+            box-shadow: 0 5px 18px #0c4a6e15;
+            transition: 0.3s ease;
+            min-height: 170px;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 22px #0c4a6e25;
+        }
+
+        .faq-item h3 {
+            color: #075985;
+            font-size: 20px;
+            margin: 0 0 15px;
+            line-height: 1.7;
+        }
+
+        .faq-item p {
+            color: #374151;
+            line-height: 2;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* CONTACT CARD */
+        .faq-note {
+            background: #eff6ff;
+            padding: 30px 25px;
+            border: 1px solid #dbeafe;
+            border-right: 5px solid #075985;
+            border-radius: 18px;
+            margin-top: 30px;
+            text-align: center;
+            line-height: 2;
+            box-shadow: 0 5px 18px #0c4a6e15;
+            transition: 0.3s ease;
+        }
+
+        .faq-note:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 22px #0c4a6e25;
+        }
+
+        .faq-note h3 {
+            color: #082f55;
+            font-size: 23px;
+            margin: 0 0 12px;
+        }
+
+        .faq-note p {
+            color: #374151;
+            font-size: 16px;
+            margin: 0 0 20px;
+        }
+
+        .faq-note a {
+            display: inline-block;
+            background: #075985;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .faq-note a:hover {
+            background: #38bdf8;
+            color: #071b3a;
+            transform: translateY(-2px);
+        }
+
+        /* FUTURE SECTION */
+        .future {
+            background: #0c3156;
+            color: white;
+            padding: 35px 20px;
+            margin: 40px 0 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .future h2 {
+            font-size: 27px;
+            color: #7dd3fc;
+        }
+
+        .future p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 2;
+            font-size: 17px;
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 25px 15px;
+            }
+
+            header .logo {
+                width: 170px;
+                height: 100px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            nav a {
+                padding: 12px;
+                font-size: 15px;
+            }
+
+            .faq-container {
+                padding: 15px;
+                margin: 25px auto;
+            }
+
+            .faq-title {
+                font-size: 23px;
+            }
+
+            .faq-intro {
+                font-size: 15px;
+            }
+
+            .faq-item {
+                padding: 20px;
+                min-height: auto;
+            }
+
+            .faq-item h3 {
+                font-size: 18px;
+            }
+
+            .faq-item p {
+                font-size: 15px;
+            }
+
+            .faq-note {
+                padding: 22px 17px;
+            }
+
+            .future {
+                padding: 25px 18px;
+                margin: 30px 0 0;
+            }
+
+            .future h2 {
+                font-size: 23px;
+            }
+
+            .future p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+<header>
+    <img class="logo" src="img/logo.jpeg">
+
+
+    <div class="zoom-buttons">
+        <button onclick="document.body.style.zoom='100%'">100%</button>
+        <button onclick="document.body.style.zoom='150%'">150%</button>
+        <button onclick="document.body.style.zoom='200%'">200%</button>
+    </div>
+</header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index.html" class="active">الرئيسية</a>
+        <a href="hours.html">الساعات الدراسية</a>
+        <a href="training.html">التدريب الميداني</a>
+        <a href="skills.html">المهارات والمجالات</a>
+        <a href="projects.html">مشاريع الطلاب</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <!-- FAQ CONTENT -->
+    <main class="faq-container">
+
+        <h2 class="faq-title">الأسئلة الشائعة حول التخصص</h2>
+
+        <p class="faq-intro">
+            تجدون هنا إجابات عن مجموعة من الأسئلة التي قد تخطر
+            في بال الطلبة حول تخصص تكنولوجيا المعلومات ونظام BTEC،
+            لمساعدتهم على فهم طبيعة التخصص ومتطلباته.
+        </p>
+
+        <div class="faq-grid">
+
+            <div class="faq-item">
+                <h3>01 - ما هو تخصص تكنولوجيا المعلومات؟</h3>
+                <p>
+                    هو تخصص يهتم باستخدام الحاسوب والتقنيات الرقمية
+                    في تطوير الأنظمة والتطبيقات وإدارة البيانات والشبكات،
+                    ويساعد الطلاب على اكتساب مهارات تقنية متنوعة.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>02 - ما هو نظام BTEC؟</h3>
+                <p>
+                    هو نظام تعليمي مهني يركز على التعلم التطبيقي
+                    وتنمية المهارات العملية، من خلال المهام والمشاريع
+                    التي تربط المعرفة النظرية بمتطلبات الحياة المهنية.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>03 - هل يركز التخصص على الجانب العملي؟</h3>
+                <p>
+                    نعم، يجمع التخصص بين المعرفة النظرية والتطبيق العملي،
+                    حيث ينفذ الطلاب مجموعة من المهام والمشاريع التي تساعدهم
+                    على تطوير مهاراتهم التقنية.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>04 - هل يتضمن التخصص تدريباً ميدانياً؟</h3>
+                <p>
+                    نعم، يتضمن البرنامج تدريباً ميدانياً يتيح للطلاب
+                    فرصة تطبيق المهارات التي تعلموها في بيئة عمل حقيقية،
+                    وفق متطلبات البرنامج والخطة المعتمدة.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>05 - ما المجالات التي يشملها التخصص؟</h3>
+                <p>
+                    يشمل التخصص مجالات متعددة مثل تطوير المواقع الإلكترونية،
+                    وتطوير التطبيقات، والذكاء الاصطناعي، والأمن السيبراني،
+                    والشبكات، وقواعد البيانات.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>06 - ما المهارات التي يكتسبها الطالب؟</h3>
+                <p>
+                    يكتسب الطالب مهارات استخدام الحاسوب، والبرمجة،
+                    وحل المشكلات، والتفكير المنطقي، وإدارة البيانات،
+                    والعمل الجماعي والتواصل.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>07 - هل يستطيع الطالب تنفيذ مشاريع خاصة؟</h3>
+                <p>
+                    نعم، يستطيع الطالب توظيف المهارات التي تعلمها
+                    في إنشاء مواقع إلكترونية وتطبيقات ومشاريع تقنية
+                    متنوعة تعكس قدراته وإبداعه.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- CONTACT CARD -->
+        <div class="faq-note">
+
+            <h3>هل لديك سؤال آخر؟</h3>
+
+            <p>
+                يمكنك الانتقال إلى صفحة التواصل للحصول على
+                مزيد من المعلومات حول تخصص تكنولوجيا المعلومات.
+            </p>
+
+            <a href="contact.html">الانتقال إلى صفحة التواصل</a>
+
+        </div>
+
+    </main>
+
+    <!-- FUTURE -->
+    <section class="future" id="future">
+
+        <h2>مستقبل التكنولوجيا</h2>
+
+        <p>
+            تغير التكنولوجيا العالم يوما بعد يوم؛ إذ تفتح تقنيات مثل الذكاء الاصطناعي، والروبوتات، والواقع الافتراضي، وإنترنت الأشياء آفاقا جديدة وتعيد تشكيل مستقبلنا.
+        </p>
+
+    </section>
+
+</body>
+</html>

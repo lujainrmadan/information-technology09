@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>المواد التدريبية</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: white;
+    color: #111827;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #071b3a, #075985);
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+
+header .logo {
+    width: 200px;
+    height: 110px;
+    object-fit: contain;
+    display: block;
+    background: white;
+    padding: 10px;
+    border: 2px solid #7dd3fc;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+    transition: 0.3s ease;
+}
+
+header .logo:hover {
+    transform: scale(1.04);
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-size: 34px;
+}
+
+/* Zoom buttons */
+.zoom-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.zoom-buttons button {
+    padding: 9px 18px;
+    border: 1px solid #7dd3fc;
+    border-radius: 8px;
+    background: #38bdf8;
+    color: #071b3a;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.zoom-buttons button:hover {
+    background: white;
+}
+
+/* Navigation */
+nav {
+    background: #123f69;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 18px 22px;
+    display: block;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    background: #38bdf8;
+    color: #071b3a;
+}
+
+/* Main */
+.main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+/* Cards */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-right: 5px solid #075985;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 5px 18px #0c4a6e15;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 22px #0c4a6e25;
+}
+
+.card h2 {
+    color: #075985;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.card p {
+    color: #374151;
+    line-height: 2;
+    font-size: 17px;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+/* Photo galleries */
+.gallery-section {
+    margin-top: 45px;
+}
+
+.gallery-title {
+    color: #075985;
+    text-align: center;
+    font-size: 27px;
+    margin: 0 0 12px;
+}
+
+.gallery-description {
+    text-align: center;
+    color: #374151;
+    font-size: 16px;
+    line-height: 2;
+    margin: 0 auto 25px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.gallery-card {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-right: 5px solid #075985;
+    border-radius: 18px;
+    padding: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px #0c4a6e15;
+    transition: 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 22px #0c4a6e25;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+.gallery-card h3 {
+    color: #075985;
+    font-size: 19px;
+    text-align: center;
+    margin: 15px 5px 8px;
+}
+
+.gallery-card p {
+    color: #374151;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: center;
+    margin: 0 5px 10px;
+}
+
+/* Bottom section */
+.future {
+    background: #0c3156;
+    color: white;
+    padding: 35px 20px;
+    margin: 40px 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+.future h2 {
+    color: #7dd3fc;
+    font-size: 27px;
+    margin-top: 0;
+}
+
+.future p {
+    color: white;
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 25px 15px;
+    }
+
+    header .logo {
+        width: 170px;
+        height: 100px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav a {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .main {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 21px;
+    }
+
+    .card p {
+        font-size: 15px;
+    }
+
+    .zoom-buttons button {
+        padding: 8px 13px;
+        font-size: 14px;
+    }
+
+    .gallery-section {
+        margin-top: 35px;
+    }
+
+    .gallery-title {
+        font-size: 23px;
+    }
+
+    .gallery-description {
+        font-size: 15px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .gallery-card img {
+        height: 230px;
+    }
+
+    .gallery-card h3 {
+        font-size: 18px;
+    }
+
+    .future {
+        padding: 25px 18px;
+        margin: 30px 0 0;
+    }
+
+    .future h2 {
+        font-size: 23px;
+    }
+
+    .future p {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img class="logo" src="img/logo.jpeg">
+
+    <h1>المواد التدريبية</h1>
+
+    <div class="zoom-buttons">
+        <button onclick="document.body.style.zoom='100%'">100%</button>
+        <button onclick="document.body.style.zoom='150%'">150%</button>
+        <button onclick="document.body.style.zoom='200%'">200%</button>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html" class="active">الرئيسية</a>
+    <a href="hours.html">الساعات الدراسية</a>
+    <a href="training.html">التدريب الميداني</a>
+    <a href="skills.html">المهارات والمجالات</a>
+    <a href="projects.html">مشاريع الطلاب</a>
+    <a href="faq.html">الأسئلة الشائعة</a>
+    <a href="contact.html">تواصل معنا</a>
+</nav>
+
+<main class="main">
+
+    <section class="services-container">
+
+        <div class="card">
+            <h2>التدريب الميداني</h2>
+
+            <p>
+                يتيح برنامج BTEC تكنولوجيا المعلومات للطلاب فرصة التقدم إلى التدريب الميداني في بيئة العمل، والذي يعد تجربة مهمة تساعدهم على الانتقال من التعلم النظري إلى التطبيق العملي. وخلال هذا التدريب، يتعرف الطلاب على طبيعة العمل داخل المؤسسات والشركات، ويكتسبون خبرة في التعامل مع الموظفين، والتعرف على المهام والمسؤوليات المهنية، وتطبيق المهارات التقنية التي تعلموها خلال دراستهم. كما يمنحهم التدريب الميداني فرصة لاكتساب مهارات التواصل والعمل الجماعي، وتنظيم الوقت، وتحمل المسؤولية، والتعامل مع المشكلات الواقعية وإيجاد الحلول المناسبة لها. ويساعد هذا التدريب الطلاب على فهم متطلبات سوق العمل، واكتشاف مجالات التكنولوجيا التي تناسب اهتماماتهم، وبناء خبرة عملية تعزز استعدادهم لمستقبلهم المهني.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>توزيع العلامات</h2>
+
+            <p>
+                يعتمد نظام التقييم في برنامج BTEC على قياس مستوى اكتساب الطالب للمهارات والمعارف من خلال المشاريع والمهام العملية والتقييمات المرتبطة بالمواد التخصصية، وليس فقط على الامتحانات التقليدية. ويهدف هذا النظام إلى تقييم قدرة الطالب على تطبيق ما تعلمه، وتحليل المشكلات، وتقديم الحلول، وتنفيذ المشاريع بصورة منظمة.
+                <br><br>
+                أما بالنسبة لتوزيع العلامات في البرنامج، فيتم احتساب <strong>35% من علامة السنة الأولى للتخصص، و35% من علامة السنة الثانية للتخصص، و30% للمواد المشتركة</strong>، بحيث تشكل هذه النسب مجموع العلامة النهائية للطالب.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- معرض صور التدريب الميداني -->
+    <section class="gallery-section">
+
+        <h2 class="gallery-title">صور التدريب الميداني</h2>
+
+        <p class="gallery-description">
+            جانب من تجربة الطلاب في بيئة العمل وتطبيق المهارات التقنية بشكل عملي.
+        </p>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-card">
+                <img src="img/تدريب2.jpeg" alt="صورة التدريب الميداني 1">
+                <h3>التدريب في بيئة العمل</h3>
+                <p>اكتساب الخبرة العملية والتعرف على بيئة العمل.</p>
+            </div>
+
+            <div class="gallery-card">
+                <img src="img/تدريب1.jpeg" alt="صورة التدريب الميداني 2">
+                <h3>التطبيق العملي</h3>
+                <p>تطبيق المهارات التقنية خلال فترة التدريب.</p>
+            </div>
+
+            <div class="gallery-card">
+                <img src="img/تدريب3.jpeg" alt="صورة التدريب الميداني 3">
+                <h3>اكتساب الخبرة</h3>
+                <p>التعرف على المهام والمسؤوليات المهنية.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- معرض صور ورشات العمل داخل المدرسة -->
+    <section class="gallery-section">
+
+        <h2 class="gallery-title">ورشات العمل والأنشطة المدرسية</h2>
+
+        <p class="gallery-description">
+            صور من الورشات والأنشطة التقنية التي تُقام داخل المدرسة لتنمية مهارات الطلاب.
+        </p>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-card">
+                <img src="img/داخلي 1.jpeg" alt="صورة ورشة عمل 1">
+                <h3>ورشات تقنية</h3>
+                <p>التعرف على مجالات التكنولوجيا من خلال الأنشطة التطبيقية.</p>
+            </div>
+
+            <div class="gallery-card">
+                <img src="img/داخلي 3.jpeg" alt="صورة ورشة عمل 2">
+                <h3>التعلم والتطبيق</h3>
+                <p>تنفيذ أنشطة عملية وتطوير المهارات الرقمية.</p>
+            </div>
+
+            <div class="gallery-card">
+                <img src="img/داخلي2.jpeg" alt="صورة ورشة عمل 3">
+                <h3>العمل الجماعي</h3>
+                <p>التعاون وتبادل المعرفة والخبرات بين الطلاب.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<section class="future">
+    <h2>تكنولوجيا المعلومات | المستقبل الرقمي</h2>
+    <p>
+        المعرفة والتدريب العملي أساس النجاح،
+        والاستمرار في التعلم يساعد الطلاب على تطوير مهاراتهم
+        والاستعداد لمتطلبات سوق العمل.
+    </p>
+</section>
+
+</body>
+</html>

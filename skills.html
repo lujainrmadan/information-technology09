@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المهارات والمجالات التقنية</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: white;
+    color: #111827;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #071b3a, #075985);
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+
+header .logo {
+    width: 200px;
+    height: 110px;
+    object-fit: contain;
+    display: block;
+    background: white;
+    padding: 10px;
+    border: 2px solid #7dd3fc;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+    transition: 0.3s ease;
+}
+
+header .logo:hover {
+    transform: scale(1.04);
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-size: 34px;
+}
+
+header p {
+    color: #dbeafe;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* أزرار التكبير */
+.zoom-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.zoom-buttons button {
+    padding: 9px 18px;
+    border: 1px solid #7dd3fc;
+    border-radius: 8px;
+    background: #38bdf8;
+    color: #071b3a;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.zoom-buttons button:hover {
+    background: white;
+}
+
+/* Navigation */
+nav {
+    background: #123f69;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 18px 22px;
+    display: block;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    background: #38bdf8;
+    color: #071b3a;
+}
+
+/* Main */
+.main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+.main h2 {
+    color: #075985;
+    text-align: center;
+    font-size: 27px;
+    margin: 20px 0 30px;
+}
+
+/* Fields */
+.fields {
+    margin-bottom: 45px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-right: 5px solid #075985;
+    border-radius: 18px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 5px 18px #0c4a6e15;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 22px #0c4a6e25;
+}
+
+.card-symbol {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #075985;
+    color: white;
+    border-radius: 15px;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.card h3 {
+    color: #075985;
+    font-size: 21px;
+    margin: 10px 0;
+}
+
+.card p {
+    color: #374151;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 0;
+}
+
+/* Skills content */
+.content {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-right: 5px solid #075985;
+    border-radius: 18px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 5px 18px #0c4a6e15;
+    transition: 0.3s ease;
+}
+
+.content:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 22px #0c4a6e25;
+}
+
+.content h3 {
+    color: #075985;
+    font-size: 21px;
+    margin-top: 0;
+}
+
+.content p {
+    color: #374151;
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+/* Learning section */
+.future {
+    background: #0c3156;
+    color: white;
+    padding: 35px 20px;
+    margin: 40px 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+.future h2 {
+    color: #7dd3fc;
+    font-size: 27px;
+    margin-top: 0;
+}
+
+.future p {
+    color: white;
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 25px 15px;
+    }
+
+    header .logo {
+        width: 170px;
+        height: 100px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    nav a {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .main {
+        padding: 15px;
+    }
+
+    .main h2 {
+        font-size: 23px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 22px 15px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .content h3 {
+        font-size: 19px;
+    }
+
+    .content p {
+        font-size: 15px;
+    }
+
+    .future {
+        padding: 25px 18px;
+        margin: 30px 0 0;
+    }
+
+    .future h2 {
+        font-size: 23px;
+    }
+
+    .future p {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img class="logo" src="img/logo.jpeg">
+
+
+    <div class="zoom-buttons">
+        <button onclick="document.body.style.zoom='100%'">100%</button>
+        <button onclick="document.body.style.zoom='150%'">150%</button>
+        <button onclick="document.body.style.zoom='200%'">200%</button>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html" class="active">الرئيسية</a>
+    <a href="hours.html">الساعات الدراسية</a>
+    <a href="training.html">التدريب الميداني</a>
+    <a href="skills.html">المهارات والمجالات</a>
+    <a href="projects.html">مشاريع الطلاب</a>
+    <a href="faq.html">الأسئلة الشائعة</a>
+    <a href="contact.html">تواصل معنا</a>
+</nav>
+
+<main class="main">
+
+    <h2>أبرز المجالات التقنية</h2>
+
+    <section class="fields">
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-symbol">WEB</div>
+                <h3>تطوير مواقع الويب</h3>
+                <p>إنشاء صفحات ومواقع إلكترونية باستخدام تقنيات الويب.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-symbol">APP</div>
+                <h3>تطوير التطبيقات</h3>
+                <p>تصميم تطبيقات تلبي احتياجات المستخدمين.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-symbol">AI</div>
+                <h3>الذكاء الاصطناعي</h3>
+                <p>التعرف إلى الأنظمة الذكية وتحليل البيانات.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-symbol">SEC</div>
+                <h3>الأمن السيبراني</h3>
+                <p>حماية الأجهزة والشبكات والبيانات الرقمية.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-symbol">NET</div>
+                <h3>الشبكات</h3>
+                <p>ربط الأجهزة وإدارة الاتصال وتبادل البيانات.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-symbol">DB</div>
+                <h3>قواعد البيانات</h3>
+                <p>تنظيم البيانات وتخزينها واسترجاعها.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <h2>المهارات التي يكتسبها الطالب</h2>
+
+    <div class="content">
+        <h3>المهارات التقنية</h3>
+        <p>
+            استخدام الحاسوب، التعامل مع البرمجيات،
+            أساسيات البرمجة، فهم الشبكات،
+            تنظيم البيانات، واستخدام الأدوات الرقمية.
+        </p>
+    </div>
+
+    <div class="content">
+        <h3>المهارات الشخصية والمهنية</h3>
+        <p>
+            التفكير النقدي، حل المشكلات، إدارة الوقت،
+            التواصل، العمل الجماعي، الإبداع، والتعلم المستمر.
+        </p>
+    </div>
+
+</main>
+
+<section class="future">
+    <h2>التعلم المستمر يصنع الفرق</h2>
+    <p>
+        يتغير مجال تكنولوجيا المعلومات بسرعة؛ لذلك
+        تُعد متابعة التطورات والتدرب على المشروعات العملية
+        من أهم الوسائل لبناء المعرفة وتطوير المهارات.
+    </p>
+</section>
+
+</body>
+</html>

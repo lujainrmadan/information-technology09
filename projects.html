@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مشاريع الطلاب | تكنولوجيا المعلومات</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: white;
+            color: #111827;
+        }
+
+        /* الهيدر */
+        header {
+            background: linear-gradient(135deg, #071b3a, #075985);
+            color: white;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 15px;
+        }
+
+        header .logo {
+            width: 200px;
+            height: 110px;
+            object-fit: contain;
+            display: block;
+            background: white;
+            padding: 10px;
+            border: 2px solid #7dd3fc;
+            border-radius: 20px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+            transition: 0.3s ease;
+        }
+
+        header .logo:hover {
+            transform: scale(1.04);
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            color: #dbeafe;
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* أزرار التكبير */
+        .zoom-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .zoom-buttons button {
+            padding: 9px 18px;
+            border: 1px solid #7dd3fc;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: #071b3a;
+            cursor: pointer;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        .zoom-buttons button:hover {
+            background: white;
+        }
+
+        /* شريط التنقل */
+        nav {
+            background: #123f69;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 18px 22px;
+            display: block;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #38bdf8;
+            color: #071b3a;
+        }
+
+        /* المحتوى الرئيسي */
+        .projects-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        .projects-title {
+            text-align: center;
+            color: #075985;
+            font-size: 28px;
+            margin: 0 0 15px;
+        }
+
+        .projects-intro {
+            text-align: center;
+            line-height: 2;
+            margin: 0 auto 35px;
+            color: #374151;
+            max-width: 850px;
+            font-size: 17px;
+        }
+
+        /* شبكة المشاريع */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        /* بطاقات المشاريع */
+        .project-card {
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            border-right: 5px solid #075985;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 5px 18px #0c4a6e15;
+            transition: 0.3s ease;
+            line-height: 1.9;
+            min-height: 190px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 22px #0c4a6e25;
+        }
+
+        .project-card h3 {
+            color: #075985;
+            font-size: 20px;
+            margin: 0 0 12px;
+        }
+
+        .project-card p {
+            color: #374151;
+            font-size: 16px;
+            line-height: 2;
+            margin: 0;
+        }
+
+        .project-number {
+            color: #075985;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* ملاحظة المشاريع */
+        .projects-note {
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            border-right: 5px solid #075985;
+            border-radius: 18px;
+            padding: 25px;
+            margin-top: 35px;
+            text-align: center;
+            line-height: 2;
+            box-shadow: 0 5px 18px #0c4a6e15;
+            transition: 0.3s ease;
+        }
+
+        .projects-note:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 22px #0c4a6e25;
+        }
+
+        .projects-note h3 {
+            color: #075985;
+            font-size: 23px;
+            margin: 0 0 12px;
+        }
+
+        .projects-note p {
+            color: #374151;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* مستقبل التكنولوجيا */
+        .future {
+            background: #0c3156;
+            color: white;
+            padding: 35px 20px;
+            margin: 40px 0 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .future h2 {
+            color: #7dd3fc;
+            font-size: 27px;
+            margin-top: 0;
+        }
+
+        .future p {
+            color: white;
+            font-size: 17px;
+            line-height: 2;
+            margin-bottom: 0;
+        }
+
+        /* الشاشات المتوسطة */
+        @media (max-width: 800px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* الشاشات الصغيرة */
+        @media (max-width: 700px) {
+            header {
+                padding: 25px 15px;
+            }
+
+            header .logo {
+                width: 170px;
+                height: 100px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            nav a {
+                padding: 12px;
+                font-size: 15px;
+            }
+
+            .projects-container {
+                padding: 15px;
+            }
+
+            .projects-title {
+                font-size: 23px;
+            }
+
+            .projects-intro {
+                font-size: 15px;
+            }
+
+            .project-card {
+                padding: 20px;
+                min-height: auto;
+            }
+
+            .project-card h3 {
+                font-size: 18px;
+            }
+
+            .project-card p {
+                font-size: 15px;
+            }
+
+            .projects-note {
+                padding: 22px 17px;
+            }
+
+            .projects-note h3 {
+                font-size: 21px;
+            }
+
+            .projects-note p {
+                font-size: 15px;
+            }
+
+            .future {
+                padding: 25px 18px;
+                margin: 30px 0 0;
+            }
+
+            .future h2 {
+                font-size: 23px;
+            }
+
+            .future p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img class="logo" src="img/logo.jpeg">
+
+
+    <div class="zoom-buttons">
+        <button onclick="document.body.style.zoom='100%'">100%</button>
+        <button onclick="document.body.style.zoom='150%'">150%</button>
+        <button onclick="document.body.style.zoom='200%'">200%</button>
+    </div>
+</header>
+
+    <!-- شريط التنقل -->
+<nav>
+    <a href="index.html" class="active">الرئيسية</a>
+    <a href="hours.html">الساعات الدراسية</a>
+    <a href="training.html">التدريب الميداني</a>
+    <a href="skills.html">المهارات والمجالات</a>
+    <a href="projects.html">مشاريع الطلاب</a>
+    <a href="faq.html">الأسئلة الشائعة</a>
+    <a href="contact.html">تواصل معنا</a>
+</nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="projects-container">
+
+        <h2 class="projects-title">مشاريع الطلاب</h2>
+
+        <p class="projects-intro">
+            يتيح تخصص تكنولوجيا المعلومات للطلاب فرصة تطبيق ما يتعلمونه
+            من مهارات ومعارف من خلال تنفيذ مشاريع عملية تساعدهم على
+            تطوير قدراتهم الإبداعية والتقنية والاستعداد لسوق العمل.
+        </p>
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <div class="project-number">01</div>
+                <h3>تصميم المواقع الإلكترونية</h3>
+                <p>
+                    إنشاء وتصميم مواقع إلكترونية باستخدام HTML وCSS
+                    وJavaScript، مع الاهتمام بتنسيق الصفحات وسهولة
+                    الاستخدام وتوافق الموقع مع الأجهزة المختلفة.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">02</div>
+                <h3>تطوير التطبيقات</h3>
+                <p>
+                    تصميم تطبيقات رقمية تساعد المستخدمين على إنجاز
+                    المهام وتقديم الخدمات بطريقة سهلة ومنظمة،
+                    مع الاهتمام بتجربة المستخدم.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">03</div>
+                <h3>الأمن السيبراني</h3>
+                <p>
+                    التعرف على أساليب حماية المعلومات والأنظمة الرقمية،
+                    ودراسة التهديدات الإلكترونية وطرق الوقاية منها
+                    والمحافظة على أمن البيانات.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">04</div>
+                <h3>الذكاء الاصطناعي</h3>
+                <p>
+                    التعرف على تطبيقات الذكاء الاصطناعي وكيفية
+                    الاستفادة منها في تحليل البيانات وحل المشكلات
+                    وتطوير الخدمات الرقمية.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">05</div>
+                <h3>قواعد البيانات</h3>
+                <p>
+                    إنشاء قواعد بيانات لتنظيم المعلومات وتخزينها
+                    وإدارتها، وتسهيل الوصول إلى البيانات واسترجاعها
+                    عند الحاجة.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">06</div>
+                <h3>الشبكات والدعم الفني</h3>
+                <p>
+                    التعرف على شبكات الحاسوب ومكوناتها، وتقديم
+                    الدعم الفني للمستخدمين والمساعدة في حل المشكلات
+                    التقنية وصيانة الأجهزة.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- ملاحظة المشاريع -->
+        <div class="projects-note">
+
+            <h3>التعلم من خلال التطبيق</h3>
+
+            <p>
+                تساعد المشاريع العملية الطلاب على تحويل المعلومات
+                النظرية إلى مهارات واقعية، وتنمية التفكير الإبداعي
+                والقدرة على حل المشكلات والعمل ضمن فريق.
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- مستقبل التكنولوجيا -->
+    <section class="future" id="future">
+
+        <h2>مستقبل التكنولوجيا</h2>
+
+        <p>
+            تغير التكنولوجيا العالم يوما بعد يوم؛ إذ تفتح تقنيات مثل الذكاء الاصطناعي، والروبوتات، والواقع الافتراضي، وإنترنت الأشياء آفاقا جديدة وتعيد تشكيل مستقبلنا.
+        </p>
+
+    </section>
+
+</body>
+</html>

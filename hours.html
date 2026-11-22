@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المواد التدريسية | تكنولوجيا المعلومات</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: white;
+            color: #111827;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #071b3a, #075985);
+            color: white;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 15px;
+        }
+
+        header .logo {
+            width: 200px;
+            height: 110px;
+            object-fit: contain;
+            display: block;
+            background: white;
+            padding: 10px;
+            border: 2px solid #7dd3fc;
+            border-radius: 20px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+            transition: 0.3s ease;
+        }
+
+        header .logo:hover {
+            transform: scale(1.04);
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 34px;
+        }
+
+        header p {
+            color: #dbeafe;
+            margin: 0;
+            font-size: 17px;
+        }
+
+        /* ZOOM BUTTONS */
+        .zoom-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .zoom-buttons button {
+            padding: 9px 18px;
+            border: 1px solid #7dd3fc;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: #071b3a;
+            cursor: pointer;
+            font-family: Georgia, serif;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        .zoom-buttons button:hover {
+            background: white;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #123f69;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 18px 22px;
+            display: block;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #38bdf8;
+            color: #071b3a;
+        }
+
+        /* MAIN CONTENT */
+        .main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        .main h2 {
+            font-size: 27px;
+            color: #082f55;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .content {
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            border-right: 5px solid #075985;
+            border-radius: 18px;
+            padding: 25px;
+            margin: 0 auto 25px;
+            box-shadow: 0 5px 18px #0c4a6e15;
+            transition: 0.3s ease;
+        }
+
+        .content:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 22px #0c4a6e25;
+        }
+
+        .info {
+            width: 100%;
+        }
+
+        .info h3 {
+            color: #075985;
+            font-size: 23px;
+            text-align: right;
+            margin-top: 0;
+        }
+
+        .info p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #374151;
+            text-align: right;
+            direction: rtl;
+            unicode-bidi: plaintext;
+            margin-bottom: 0;
+        }
+
+        /* TRAINING HOURS */
+        .fields {
+            background: #eff6ff;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .fields h2 {
+            color: #082f55;
+            font-size: 27px;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: #eff6ff;
+            border: 1px solid #dbeafe;
+            border-right: 5px solid #075985;
+            border-radius: 18px;
+            padding: 25px;
+            width: 300px;
+            box-shadow: 0 5px 18px #0c4a6e15;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 22px #0c4a6e25;
+        }
+
+        .card h3 {
+            color: #075985;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #475569;
+            line-height: 1.9;
+            direction: rtl;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        /* FUTURE SECTION */
+        .future {
+            background: #0c3156;
+            color: white;
+            padding: 35px 20px;
+            margin: 40px 0 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .future h2 {
+            font-size: 27px;
+            color: #7dd3fc;
+        }
+
+        .future p {
+            max-width: 800px;
+            margin: auto;
+            line-height: 2;
+            font-size: 17px;
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+
+            header {
+                padding: 25px 15px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            header .logo {
+                width: 170px;
+                height: 100px;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                padding: 12px;
+                font-size: 15px;
+            }
+
+            .main {
+                padding: 15px;
+            }
+
+            .main h2 {
+                font-size: 23px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .info h3 {
+                font-size: 21px;
+            }
+
+            .info p {
+                font-size: 15px;
+            }
+
+            .fields {
+                padding: 25px 18px;
+            }
+
+            .fields h2 {
+                font-size: 23px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .future {
+                padding: 25px 18px;
+                margin: 30px 0 0;
+            }
+
+            .future h2 {
+                font-size: 23px;
+            }
+
+            .future p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+<header>
+    <img class="logo" src="img/logo.jpeg">
+
+
+    <div class="zoom-buttons">
+        <button onclick="document.body.style.zoom='100%'">100%</button>
+        <button onclick="document.body.style.zoom='150%'">150%</button>
+        <button onclick="document.body.style.zoom='200%'">200%</button>
+    </div>
+</header>
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index.html" class="active">الرئيسية</a>
+        <a href="hours.html">الساعات الدراسية</a>
+        <a href="training.html">التدريب الميداني</a>
+        <a href="skills.html">المهارات والمجالات</a>
+        <a href="projects.html">مشاريع الطلاب</a>
+        <a href="faq.html">الأسئلة الشائعة</a>
+        <a href="contact.html">تواصل معنا</a>
+    </nav>
+
+    <!-- HOME -->
+    <main class="main" id="home">
+
+        <h2>ما هي المواد التدريسية في المراحل الدراسية؟</h2>
+
+        <div class="content">
+
+            <div class="info" id="about">
+
+                <h3>المواد التدريسية في الصف العاشر</h3>
+
+                <p>
+                    يدرس طلاب الصف العاشر في تخصص BTEC تكنولوجيا المعلومات مجموعة من المواد التخصصية التي تساعدهم على بناء أساس قوي في المجال التقني، وتشمل استخدام تكنولوجيا المعلومات، ومقدمة في تطوير مواقع الويب، ومقدمة في تطوير التطبيقات، والبرمجة، وتصميم الألعاب، ونمذجة البيانات، حيث تساهم هذه المواد في تنمية مهارات الطلاب في التعامل مع التكنولوجيا وتصميم المواقع والتطبيقات والألعاب، بالإضافة إلى تطوير قدراتهم في البرمجة وتحليل البيانات.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <div class="info">
+
+                <h3>المواد التدريسية في الصف الاول ثانوي</h3>
+
+                <p>
+                    يدرس طلاب الصف الأول الثانوي في تخصص BTEC تكنولوجيا المعلومات مواد تخصصية تركز على تطوير مهاراتهم التقنية والعملية، وتشمل تطوير مواقع الويب، والتطبيقات، والدعم الفني، والنظم، مما يساعدهم على اكتساب الخبرة في تصميم المواقع والتطبيقات، والتعامل مع الأنظمة التقنية، وتقديم الدعم الفني وحل المشكلات.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <div class="info">
+
+                <h3>المواد التدريسية في الصف التوجيهي</h3>
+
+                <p>
+                    يدرس طلاب الصف الثاني الثانوي في تخصص BTEC تكنولوجيا المعلومات مواد متقدمة تواكب التطور التكنولوجي، وتشمل الذكاء الاصطناعي، والأمن السيبراني، والبرمجة، وإدارة المشاريع، حيث تساعد هذه المواد على تطوير مهارات الطلاب في بناء الأنظمة الذكية، وحماية المعلومات، وتطوير البرامج، والتخطيط للمشاريع وتنفيذها، مما يؤهلهم لمواصلة الدراسة والعمل في المجالات التقنية المستقبلية.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- TRAINING HOURS -->
+    <section class="fields" id="fields">
+
+        <h2>عدد الساعات لكل حصة</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>عدد الساعات في الصف العاشر</h3>
+
+                <p>
+                    يبلغ مجموع ساعات المواد التخصصية لطلاب الصف العاشر في تخصص BTEC تكنولوجيا المعلومات 360 ساعة، موزعة على ست مواد تشمل استخدام تكنولوجيا المعلومات، ومقدمة في تطوير الويب، ومقدمة في التطبيقات، والبرمجة، والألعاب، ونمذجة البيانات.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>عدد الساعات في الصف الاول ثانوي</h3>
+
+                <p>
+                    يبلغ مجموع ساعات المواد التخصصية لطلاب الصف الأول الثانوي 240 ساعة، موزعة على أربع مواد تشمل تطوير الويب، والتطبيقات، والدعم الفني، والنظم.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>عدد الساعات في الصف التوجيهي</h3>
+
+                <p>
+                    يبلغ مجموع ساعات المواد التخصصية لطلاب الصف الثاني الثانوي 240 ساعة، موزعة على أربع مواد تشمل الذكاء الاصطناعي، والأمن السيبراني، والبرمجة، وإدارة المشاريع.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FUTURE -->
+    <section class="future" id="future">
+
+        <h2>مستقبل التكنولوجيا</h2>
+
+        <p>
+            تغير التكنولوجيا العالم يوما بعد يوم؛ إذ تفتح تقنيات مثل الذكاء الاصطناعي، والروبوتات، والواقع الافتراضي، وإنترنت الأشياء آفاقا جديدة وتعيد تشكيل مستقبلنا.
+        </p>
+
+    </section>
+
+</body>
+</html>

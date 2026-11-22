@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الرئيسية | تكنولوجيا المعلومات</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: white;
+    color: #111827;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #071b3a, #075985);
+    color: white;
+    padding: 20px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    min-height: 150px;
+    direction: ltr;
+}
+
+.school-logo,
+header .logo {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: white;
+    padding: 8px;
+    border: 2px solid #7dd3fc;
+    border-radius: 50%;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.20);
+    transition: 0.3s ease;
+    flex-shrink: 0;
+}
+
+.school-logo:hover,
+header .logo:hover {
+    transform: scale(1.04);
+}
+
+/* Zoom buttons */
+.zoom-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    direction: rtl;
+}
+
+.zoom-buttons button {
+    padding: 9px 18px;
+    border: 1px solid #7dd3fc;
+    border-radius: 8px;
+    background: #38bdf8;
+    color: #071b3a;
+    cursor: pointer;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.zoom-buttons button:hover {
+    background: white;
+}
+
+/* Navigation */
+nav {
+    background: #123f69;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    direction: rtl;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 18px 22px;
+    display: block;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    background: #38bdf8;
+    color: #071b3a;
+}
+
+/* Main */
+.main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+.main > h2 {
+    font-size: 27px;
+    color: #075985;
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+/* Content cards */
+.content {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-right: 5px solid #075985;
+    border-radius: 18px;
+    padding: 25px;
+    margin: 0 0 25px;
+    box-shadow: 0 5px 18px #0c4a6e15;
+    transition: 0.3s ease;
+}
+
+.content:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 22px #0c4a6e25;
+}
+
+.content h3 {
+    color: #075985;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.content p {
+    font-size: 17px;
+    line-height: 2;
+    color: #374151;
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+/* Royal support section */
+.royal-support {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0 0 25px;
+}
+
+.royal-support img {
+    width: 230px;
+    height: 260px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    border: 3px solid #dbeafe;
+    box-shadow: 0 5px 15px #0c4a6e20;
+    flex-shrink: 0;
+}
+
+.royal-support .royal-text {
+    flex: 1;
+}
+
+.royal-support .royal-text h3 {
+    margin-top: 0;
+}
+
+/* Field visits images */
+.visit-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.visit-images img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #dbeafe;
+    box-shadow: 0 4px 12px #0c4a6e15;
+    transition: 0.3s ease;
+}
+
+.visit-images img:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+}
+
+/* Skills section */
+.cards-section {
+    background: #eff6ff;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.cards-section h2 {
+    color: #075985;
+    font-size: 27px;
+    margin-top: 0;
+}
+
+.cards-section > p {
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Interactive cards */
+.card {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-right: 5px solid #075985;
+    border-radius: 18px;
+    width: 270px;
+    min-height: 230px;
+    padding: 25px;
+    box-shadow: 0 5px 18px #0c4a6e15;
+    transition: 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 22px #0c4a6e25;
+}
+
+.card .card-number {
+    font-size: 30px;
+    font-weight: bold;
+    color: #075985;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: #075985;
+    font-size: 21px;
+    margin: 10px 0 12px;
+}
+
+.card > p {
+    color: #475569;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.card-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease, opacity 0.35s ease;
+}
+
+.card.open .card-details {
+    max-height: 250px;
+    opacity: 1;
+}
+
+.card-details p {
+    color: #334155;
+    line-height: 1.9;
+    font-size: 15px;
+}
+
+.card.open {
+    background: #e0f2fe;
+    border-right-color: #075985;
+}
+
+.card-button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: #075985;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-button:hover {
+    background: #38bdf8;
+    color: #071b3a;
+}
+
+/* Future section */
+.future {
+    background: #0c3156;
+    color: white;
+    padding: 35px 20px;
+    margin: 40px 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+.future h2 {
+    color: #7dd3fc;
+    font-size: 27px;
+    margin-top: 0;
+}
+
+.future p {
+    color: white;
+    max-width: 800px;
+    margin: auto;
+    font-size: 17px;
+    line-height: 2;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .card {
+        width: calc(50% - 15px);
+    }
+
+    .visit-images {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        padding: 15px 10px;
+        gap: 8px;
+        min-height: 110px;
+    }
+
+    .school-logo,
+    header .logo {
+        width: 85px;
+        height: 85px;
+        padding: 5px;
+    }
+
+    .zoom-buttons {
+        gap: 5px;
+    }
+
+    .zoom-buttons button {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    nav a {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .main {
+        padding: 15px;
+    }
+
+    .main > h2 {
+        font-size: 23px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .content h3 {
+        font-size: 21px;
+    }
+
+    .content p {
+        font-size: 15px;
+    }
+
+    .royal-support {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .royal-support img {
+        width: 190px;
+        height: 210px;
+    }
+
+    .royal-support .royal-text p {
+        text-align: justify;
+    }
+
+    .visit-images {
+        grid-template-columns: 1fr;
+    }
+
+    .visit-images img {
+        height: 220px;
+    }
+
+    .cards-section {
+        padding: 25px 15px;
+    }
+
+    .cards-section h2 {
+        font-size: 23px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+        padding: 20px;
+    }
+
+    .future {
+        padding: 25px 18px;
+        margin: 30px 0 0;
+    }
+
+    .future h2 {
+        font-size: 23px;
+    }
+
+    .future p {
+        font-size: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <img class="school-logo"
+         src="img/شعار المدرسة .jpeg"
+         alt="شعار المدرسة">
+
+    <div class="zoom-buttons">
+        <button onclick="document.body.style.zoom='100%'">100%</button>
+        <button onclick="document.body.style.zoom='150%'">150%</button>
+        <button onclick="document.body.style.zoom='200%'">200%</button>
+    </div>
+
+    <img class="logo"
+         src="img/logo.jpeg"
+         alt="شعار تخصص تكنولوجيا المعلومات">
+
+</header>
+
+<nav>
+    <a href="index.html" class="active">الرئيسية</a>
+    <a href="hours.html">الساعات الدراسية</a>
+    <a href="training.html">التدريب الميداني</a>
+    <a href="skills.html">المهارات والمجالات</a>
+    <a href="projects.html">مشاريع الطلاب</a>
+    <a href="faq.html">الأسئلة الشائعة</a>
+    <a href="contact.html">تواصل معنا</a>
+</nav>
+
+<main class="main">
+
+    <h2>التعريف بتخصص تكنولوجيا المعلومات</h2>
+
+    <div class="content">
+
+        <h3>ما هو تخصص تكنولوجيا المعلومات؟</h3>
+
+        <p>
+            تخصص تكنولوجيا المعلومات (IT) هو تخصص يهتم بعالم التكنولوجيا
+            والحاسوب، ويشمل تعلم البرمجة، وتصميم المواقع والتطبيقات،
+            وقواعد البيانات، والشبكات، والأمن السيبراني. يهدف هذا التخصص
+            إلى تطوير المهارات التقنية، وتعلم كيفية استخدام التكنولوجيا
+            في حل المشكلات وتسهيل الأعمال، ومواكبة التطور التكنولوجي
+            في مختلف مجالات الحياة.
+        </p>
+
+    </div>
+
+    <div class="content">
+
+        <h3>نبذة عن تخصص BTEC</h3>
+
+        <p>
+            يُعدّ نظام BTEC نظامًا تعليميًا مهنيًا دوليًا يركز على تنمية
+            المهارات العملية والتطبيقية لدى الطلبة، من خلال الجمع بين
+            المعرفة النظرية والتدريب العملي، وإعدادهم لسوق العمل
+            ومواصلة التعليم الجامعي.
+
+            يعتمد النظام على تنفيذ المهام والمشاريع العملية والتقييم
+            المستمر بدلًا من الاعتماد على الامتحانات التقليدية فقط،
+            مما يساعد الطلبة على اكتساب الخبرة وتطوير مهارات التفكير
+            والإبداع وحل المشكلات والعمل الجماعي.
+
+            ويهدف تخصص BTEC إلى تأهيل الطلبة بالمعارف والمهارات اللازمة
+            في مجالات تخصصاتهم، وربط التعليم بالتطبيق العملي واحتياجات
+            سوق العمل، بما يساهم في إعداد جيل قادر على مواكبة التطورات
+            المهنية والتكنولوجية.
+        </p>
+
+    </div>
+
+    <!-- Royal leadership support -->
+    <div class="content royal-support">
+
+        
+        <div class="royal-text">
+
+            <h3>دعم القيادة الهاشمية للتعليم المهني والتقني</h3>
+
+            <p>
+                يحظى التعليم المهني والتقني في الأردن باهتمام ورعاية
+                ملكية من جلالة الملك عبدالله الثاني ابن الحسين وسمو
+                الأمير الحسين بن عبدالله الثاني ولي العهد، انطلاقًا
+                من أهمية تطوير التعليم وتأهيل الشباب بالمهارات
+                والمعارف التي يحتاجها سوق العمل. ويأتي نظام BTEC
+                ضمن جهود تطوير التعليم المهني والتقني، وربط التعليم
+                بالتطبيق العملي، وتوفير فرص أفضل للطلبة لاكتساب
+                الخبرات والمهارات اللازمة لمستقبلهم المهني.
+                ويعكس هذا التوجه الاهتمام ببناء جيل مبدع ومؤهل
+                وقادر على المساهمة في تقدم الأردن وتطوره.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- Field visits -->
+    <div class="content">
+
+        <h3>الزيارات الميدانية</h3>
+
+        <p>
+            يوفّر نظام BTEC للطلبة فرص المشاركة في زيارات ميدانية خلال
+            الفصول الدراسية، بهدف تعريفهم ببيئة العمل الواقعية، وربط
+            المعرفة النظرية بالتطبيق العملي، والتعرّف على مجالات العمل
+            المرتبطة بتخصصاتهم.
+        </p>
+
+        <div class="visit-images">
+
+            <img src="img/ميدانية 1.jpeg" alt="زيارة ميدانية">
+
+            <img src="img/ميدانية 2.jpeg" alt="زيارة ميدانية">
+
+            <img src="img/ميدانية 3.jpeg" alt="زيارة ميدانية">
+
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <h3>أهداف التخصص</h3>
+
+        <p>
+            تهدف التخصصات المهنية في نظام BTEC إلى تزويد الطلبة بالمعارف
+            والمهارات المتخصصة في مختلف المجالات المهنية والتقنية،
+            وتنمية قدراتهم على تطبيق ما يتعلمونه في مواقف عملية تحاكي
+            بيئة العمل الحقيقية. كما تسعى إلى اكتشاف ميول الطلبة
+            وقدراتهم، وتعزيز الإبداع والابتكار والتفكير النقدي وحل
+            المشكلات، وإكسابهم الخبرة من خلال المشاريع والتدريب الميداني،
+            بما يساعدهم على اختيار مساراتهم المستقبلية والاستعداد
+            للالتحاق بسوق العمل أو متابعة دراستهم الجامعية.
+        </p>
+
+    </div>
+
+</main>
+
+<section class="cards-section">
+
+    <h2>المهارات التي يكتسبها الطالب في تخصص تكنولوجيا المعلومات</h2>
+
+    <p>اضغط على أي بطاقة للتعرف على تفاصيل المهارة.</p>
+
+    <div class="cards">
+
+        <div class="card"
+             onclick="toggleCard(this)"
+             role="button"
+             tabindex="0"
+             aria-expanded="false"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}">
+
+            <div class="card-number">01</div>
+
+            <h3>البرمجة</h3>
+
+            <p>تعلم كتابة الأوامر والتعليمات لإنشاء البرامج.</p>
+
+            <div class="card-details">
+                <p>
+                    يتعلم الطالب أساسيات لغات البرمجة، وكيفية كتابة
+                    الأكواد وتصحيح الأخطاء وتطوير البرامج التي
+                    تساعد على حل المشكلات وتنفيذ المهام.
+                </p>
+            </div>
+
+            <button class="card-button" type="button" tabindex="-1">
+                اكتشف المزيد
+            </button>
+
+        </div>
+
+        <div class="card"
+             onclick="toggleCard(this)"
+             role="button"
+             tabindex="0"
+             aria-expanded="false"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}">
+
+            <div class="card-number">02</div>
+
+            <h3>تطوير المواقع</h3>
+
+            <p>تصميم صفحات الويب وإنشاء المواقع الإلكترونية.</p>
+
+            <div class="card-details">
+                <p>
+                    يتعلم الطالب استخدام HTML لبناء الصفحات،
+                    وCSS لتنسيقها، وJavaScript لإضافة التفاعل
+                    والحركة وتحسين تجربة المستخدم.
+                </p>
+            </div>
+
+            <button class="card-button" type="button" tabindex="-1">
+                اكتشف المزيد
+            </button>
+
+        </div>
+
+        <div class="card"
+             onclick="toggleCard(this)"
+             role="button"
+             tabindex="0"
+             aria-expanded="false"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}">
+
+            <div class="card-number">03</div>
+
+            <h3>الأمن السيبراني</h3>
+
+            <p>حماية الأنظمة والشبكات والمعلومات الرقمية.</p>
+
+            <div class="card-details">
+                <p>
+                    يتعرف الطالب على التهديدات الإلكترونية،
+                    وأساليب حماية البيانات، وأهمية كلمات المرور
+                    القوية والتحديثات الأمنية وحماية الشبكات.
+                </p>
+            </div>
+
+            <button class="card-button" type="button" tabindex="-1">
+                اكتشف المزيد
+            </button>
+
+        </div>
+
+        <div class="card"
+             onclick="toggleCard(this)"
+             role="button"
+             tabindex="0"
+             aria-expanded="false"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleCard(this)}">
+
+            <div class="card-number">04</div>
+
+            <h3>الذكاء الاصطناعي</h3>
+
+            <p>التعرف على الأنظمة الذكية وتطبيقاتها الحديثة.</p>
+
+            <div class="card-details">
+                <p>
+                    يتعرف الطالب على كيفية استخدام الذكاء الاصطناعي
+                    في تحليل البيانات، والتعرف على الأنماط،
+                    وتقديم حلول تساعد في إنجاز المهام.
+                </p>
+            </div>
+
+            <button class="card-button" type="button" tabindex="-1">
+                اكتشف المزيد
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="future">
+
+    <h2>مستقبل تكنولوجيا المعلومات</h2>
+
+    <p>
+        أصبحت تكنولوجيا المعلومات جزءًا أساسيًا من حياتنا اليومية،
+        فهي تساهم في تطوير التعليم والصحة والأعمال والاتصالات.
+        ومع استمرار التطور التقني، تزداد أهمية المهارات الرقمية
+        والقدرة على الابتكار والتعلم المستمر لمواكبة المستقبل.
+    </p>
+
+</section>
+
+<script>
+function toggleCard(card) {
+
+    const isOpen = card.classList.toggle("open");
+
+    card.setAttribute("aria-expanded", isOpen);
+
+    const button = card.querySelector(".card-button");
+
+    button.textContent = isOpen
+        ? "إغلاق التفاصيل"
+        : "اكتشف المزيد";
+}
+</script>
+
+</body>
+</html>
